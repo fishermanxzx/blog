@@ -7,4 +7,5 @@ node_modules/
 .vscode/
 *.local
 logs
+package-lock.json
 *.log%      
