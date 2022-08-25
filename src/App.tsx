@@ -4,8 +4,8 @@ import './App.scss'
 function App () {
   return (
     <div className="App">
+        <div>谢梓炫的个人博客</div>
         <img src={logo} className="App-logo" alt="logo" />
-        <div>2</div>
     </div>
   )
 }
