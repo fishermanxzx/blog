@@ -4,7 +4,7 @@ type Props = {
   icon: 'dianzan' | 'wenzhang' | 'shoucang'
   className?: string
 }
-export default function index({
+export default function Icon({
   icon,
   className
 }: Props) {
