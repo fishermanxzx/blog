@@ -1,8 +1,5 @@
 .NotFound {
     position: relative;
-    height: 100vh;
-    overflow: hidden;
-
     @keyframes floating {
         0% {
             transform: translate(0px, 0px);
@@ -39,7 +36,7 @@
         height: 355px;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -80%);
+        transform: translate(-50%, -50%);
 
         .four {
             position: absolute;
@@ -333,7 +330,4 @@
             color: #fff;
         }
     }
-
-
-
 }

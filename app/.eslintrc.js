@@ -40,6 +40,8 @@ module.exports = {
     'no-tabs': 'off',
     'no-mixed-spaces-and-tabs': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    'no-new': 'off'
+    'no-new': 'off',
+    'react/no-unescaped-entities': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
 }

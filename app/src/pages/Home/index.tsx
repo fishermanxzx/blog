@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import './index.scss'
 import { Link } from 'react-router-dom'
-
+import Icon from '@/Icon'
 function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const menus = [{
@@ -23,16 +23,19 @@ function Home() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (canvas != null) {
-      const width = window.innerWidth
-      const height = window.innerHeight
+      let width = document.documentElement.scrollWidth
+      let height = document.documentElement.scrollHeight
       canvas.width = width
       canvas.height = height
       const ctx = canvas.getContext('2d')!
       const columnWidth = 20
       const columnCount = Math.floor(window.innerWidth / columnWidth)
       const columnNextIndexes = new Array(columnCount).fill(1)
+      let time = 1
       const draw = () => {
-        ctx.fillStyle = 'rgba(0,0,0,0.1)'
+        // 防止第一次绘制闪烁
+        ctx.fillStyle = time === 1 ? 'rgba(0,0,0,1)' : 'rgba(0,0,0,0.1)'
+        time++
         ctx.fillRect(0, 0, width, height)
         const fz = 20
         ctx.fillStyle = getRandomColor()
@@ -62,11 +65,20 @@ function Home() {
         draw()
         timer = window.requestAnimationFrame(startDraw)
       }
+      const resize = () => {
+        time = 1
+        width = document.documentElement.scrollWidth
+        height = document.documentElement.scrollHeight
+        canvas.width = width
+        canvas.height = height
+      }
+      window.addEventListener('resize', resize)
       startDraw()
       return () => {
         if (timer != null) {
           cancelAnimationFrame(timer)
         }
+        window.removeEventListener('resize', resize)
       }
     }
   }, [])
@@ -84,6 +96,9 @@ function Home() {
             </div>
         </div>
         <canvas ref={canvasRef}></canvas>
+        <div className='recommend'>
+          <Icon icon='dianzan' className='icon'></Icon><span>好文推荐</span>
+        </div>
     </main>
   )
 }

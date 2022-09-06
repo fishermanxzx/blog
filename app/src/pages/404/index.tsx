@@ -11,8 +11,8 @@ export default function index({}: Props) {
     const canvas = canvasRef.current
     if (canvas != null) {
       const ctx = canvas.getContext('2d')!
-      const width = window.innerWidth
-      const height = window.innerHeight
+      let width = document.documentElement.scrollWidth
+      let height = document.documentElement.scrollHeight
       canvas.width = width
       canvas.height = height
       const stars: Star[] = []
@@ -94,10 +94,18 @@ export default function index({}: Props) {
         timer = window.requestAnimationFrame(animation)
       }
       animation()
+      const resize = () => {
+        width = document.documentElement.scrollWidth
+        height = document.documentElement.scrollHeight
+        canvas.width = width
+        canvas.height = height
+      }
+      window.addEventListener('resize', resize)
       return () => {
         if (timer != null) {
           cancelAnimationFrame(timer)
         }
+        window.removeEventListener('resize', resize)
       }
     }
   }, [])
@@ -195,7 +203,7 @@ export default function index({}: Props) {
                 </div>
             </div>
             <div className="back" onClick={backToHome}>TAKE ME BACK</div>
-            <div className="sorry">Oops! Sorry, page not found.</div>
+            <div className="sorry">You're lost.&ensp; Page not found.</div>
         </div>
     <canvas ref={canvasRef}></canvas>
 </div>
