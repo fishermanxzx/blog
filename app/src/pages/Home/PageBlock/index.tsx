@@ -1,9 +1,22 @@
 import React from 'react'
 import './index.scss'
-type Props = {}
+type Props = {
+  children?: JSX.Element
+  title?: string
+}
 
-export default function index({}: Props) {
+export default function PageBlock({
+  children,
+  title
+}: Props) {
   return (
-    <div>index</div>
+    <div className='PageBlock'>
+        {title}
+       <div className='block_img'></div>
+       <div className='introduction'>
+        {children ?? <>
+          </>}
+       </div>
+    </div>
   )
 }
