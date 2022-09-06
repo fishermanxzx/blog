@@ -1,11 +1,13 @@
 import React from 'react'
-import logo from '@/assets/logo.png'
+// import logo from '@/assets/logo.png'
 import './App.scss'
-function App () {
+import routes from './routes'
+import { useRoutes } from 'react-router-dom'
+function App() {
+  const element = useRoutes(routes)
   return (
     <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className='title'>谢梓炫的个人博客</div>
+          {element}
     </div>
   )
 }
