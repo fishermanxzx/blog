@@ -15,7 +15,7 @@ export default function PageBlock({
   return (
     <div className='PageBlock'>
        <div className='block_img'>
-            <img src={imgSrc} />
+            <img src={imgSrc} loading="lazy"/>
             <h1 className='page_name'>{title}</h1>
        </div>
        <div className='introduction'>
