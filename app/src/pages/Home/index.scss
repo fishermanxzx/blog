@@ -1,46 +1,107 @@
 .home {
     padding: 32px;
+
     .menus {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 32px;
+        margin-top: 16px;
+
+        @keyframes fill {
+            0% {
+                left: 50%;
+                right: 50%;
+                top: 50%;
+                bottom: 50%;
+            }
+
+            100% {
+                left: 0%;
+                right: 0%;
+                top: 0%;
+                bottom: 0%;
+            }
+        }
 
         .menu {
             min-width: 200px;
             flex: 1;
             border-radius: 10px;
             margin: 8px;
-            background-color: #fff;
-            color: #000;
+            color: #fff;
             font-size: 16px;
             display: flex;
             align-items: center;
             padding: 12px 16px;
             box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 1);
             transition: all 0.5s;
+            position: relative;
 
             &:hover {
-                background-color: rgba($color: #fff, $alpha: 0.3);
-                box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
-                color: #fff;
+                color: #000;
                 font-weight: 900;
                 transform: scale(1.05);
+
+                &::after {
+                    animation: fill 0.3s linear forwards;
+                }
+            }
+
+            &::after {
+                content: '';
+                background-color: #fff;
+                position: absolute;
+                border-radius: 10px;
+                left: 50%;
+                right: 50%;
+                top: 50%;
+                bottom: 50%;
+                z-index: -1;
             }
         }
     }
+
     .recommend {
         margin-top: 32px;
+
         .title {
             display: flex;
             align-items: center;
             justify-content: start;
             color: white;
             font-size: 24px;
+            font-weight: 900;
+
             .icon {
                 font-size: 32px;
             }
-            span{
+
+            span {
                 margin-left: 8px;
+            }
+        }
+
+        .content {
+            margin-top: 16px;
+            column-count: 4;
+            column-gap: 32px;
+            .PageBlock {
+                margin-bottom: 16px;
+            }
+        }
+        @media screen and (max-width:1440px) {
+            .content {
+                column-count: 3
+            }
+        }
+        @media screen and (max-width:960px) {
+            .content {
+                column-count: 2
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            .content {
+                column-count: 1
             }
         }
 

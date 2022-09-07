@@ -13,9 +13,9 @@
         border-radius: 50%;
     }
     .text_wrapper {
-        width: 320px;
-        height: 80px;
-        line-height: 80px;
+        width: 300px;
+        line-height: 40px;
+        height: 40px;
         overflow: hidden;
         text-align: center;
         box-sizing: border-box;
@@ -29,7 +29,7 @@
         }
         .text {
             white-space: nowrap;
-            font-size: 24px;
+            font-size: 22px;
             color: #fff;
             text-shadow: -1px 1px #aaa, -2px 2px #aaa, -3px 3px #aaa, -6px 10px #666;
         }
@@ -37,9 +37,15 @@
             font-size: 24px;
             color: #fff;
             text-shadow: -1px 1px #aaa, -2px 2px #aaa, -3px 3px #aaa, -6px 10px #666;
-            margin-left: 4px;
             &.typing{
                 animation: typing 0.3s linear infinite;
+            }
+            &:nth-child(1){
+                margin-right: 4px;
+                visibility: hidden;
+            }
+            &:nth-child(3){
+                margin-left: 4px;
             }
         }
     }
