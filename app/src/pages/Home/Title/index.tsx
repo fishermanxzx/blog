@@ -31,6 +31,7 @@ export default function Title({}: Props) {
     <div className='title'>
         <div className='img_logo'></div>
         <div className='text_wrapper'>
+            <span className='tetyped_cursor'>|</span>
             <span className='text' ref={titleRef}></span>
             <span className='tetyped_cursor' ref={cursorRef}>|</span>
         </div>

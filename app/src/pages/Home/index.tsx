@@ -21,36 +21,39 @@ function Home() {
   }, {
     path: '/interview_questions',
     title: '前端每日一题'
+  }, {
+    path: '/project',
+    title: '项目实战'
   }]
   const pages = [{
-    title: '1',
+    title: '手写Promise',
     children: <><div>1</div></>
   }, {
-    title: '2',
+    title: 'Promise相关题目',
     children: <><div>2</div><div>2</div></>
   }, {
-    title: '3',
+    title: 'this指向',
     children: <><div>3</div><div>3</div><div>4</div></>
   }, {
-    title: '4',
+    title: '排序算法',
     children: <><div>4</div><div>4</div><div>4</div><div>4</div></>
   }, {
-    title: '5',
+    title: '函数式编程及链式调用',
     children: <><div>5</div><div>4</div><div>4</div></>
   }, {
-    title: '6',
+    title: 'Vue的响应式原理',
     children: <><div>6</div><div>4</div></>
   }, {
-    title: '7',
+    title: 'Vite+Vue3+Element Plus 开发 Chrome extension',
     children: <><div>7</div><div>4</div><div>4</div></>
   }, {
-    title: '8',
+    title: 'canvas实现代码雨',
     children: <><div>8</div><div>4</div><div>4</div></>
   }, {
-    title: '9',
+    title: 'img自动懒加载',
     children: <><div>9</div><div>4</div><div>4</div></>
   }, {
-    title: '10',
+    title: '本博客搭建、部署全流程',
     children: <><div>10</div><div>4</div><div>4</div></>
   }]
   return (

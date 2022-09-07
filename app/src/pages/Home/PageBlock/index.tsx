@@ -1,3 +1,5 @@
+import Icon from '@/Icon'
+import { random } from '@/utils'
 import React from 'react'
 import './index.scss'
 type Props = {
@@ -9,13 +11,20 @@ export default function PageBlock({
   children,
   title
 }: Props) {
+  const imgSrc = `/imgs/${random(0, 127)}.jpg`
   return (
     <div className='PageBlock'>
-        {title}
-       <div className='block_img'></div>
+       <div className='block_img'>
+            <img src={imgSrc} />
+            <h1 className='page_name'>{title}</h1>
+       </div>
        <div className='introduction'>
         {children ?? <>
           </>}
+       </div>
+       <div className="mask">
+            <span>More</span>
+            <Icon icon='gengduo' className='more'></Icon>
        </div>
     </div>
   )

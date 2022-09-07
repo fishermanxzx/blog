@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "3607116",
+      "name": "绿洲_更多",
+      "font_class": "gengduo",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
       "icon_id": "15344284",
       "name": "点赞",
       "font_class": "dianzan",

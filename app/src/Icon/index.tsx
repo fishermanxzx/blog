@@ -1,7 +1,7 @@
 import React from 'react'
 import './font/iconfont.css'
 type Props = {
-  icon: 'dianzan' | 'wenzhang' | 'shoucang'
+  icon: 'dianzan' | 'wenzhang' | 'shoucang' | 'gengduo'
   className?: string
 }
 export default function Icon({
