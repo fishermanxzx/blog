@@ -2,7 +2,7 @@ import React from 'react'
 import './index.scss'
 import { Link } from 'react-router-dom'
 import Icon from '@/Icon'
-import Background from './Background'
+import Background from '@/components/Background'
 import Title from './Title'
 import PageBlock from './PageBlock'
 function Home() {
