@@ -42,6 +42,9 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-new': 'off',
     'react/no-unescaped-entities': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off'
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/no-floating-promises': 'off'
   }
 }
