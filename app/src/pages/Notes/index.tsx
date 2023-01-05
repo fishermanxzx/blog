@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import './index.scss'
+import Background from '@/components/Background'
+import Markdown from '@/components/Markdown'
+import { getMarkdownFile } from '@/api'
+// type Props = {}
 
-type Props = {}
+export default function Notes() {
+  const [markdownContent, setMarkdownContent] = useState('')
+  useEffect(() => {
+    getMarkdownFile<string>('c.md').then((data) => {
+      setMarkdownContent(data.data)
+    })
+  }, [])
 
-export default function Notes({}: Props) {
   return (
-    <div>Notes</div>
+    <>
+    <Background></Background>
+    <div className='Note'>
+      <div className='card'>
+        <Markdown content={markdownContent}></Markdown>
+      </div>
+
+    </div>
+
+    </>
   )
 }

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2510778 */
-  src: url('iconfont.woff2?t=1662529253838') format('woff2'),
-       url('iconfont.woff?t=1662529253838') format('woff'),
-       url('iconfont.ttf?t=1662529253838') format('truetype');
+  src: url('./iconfont.woff2?t=1662529253838') format('woff2'),
+       url('./iconfont.woff?t=1662529253838') format('woff'),
+       url('./iconfont.ttf?t=1662529253838') format('truetype');
 }
 
 .iconfont {
@@ -29,3 +29,6 @@
   content: "\e610";
 }
 
+.icon-copy::before{
+  content: "\ec7a";
+}

@@ -1,0 +1,32 @@
+.Markdown{
+    .markdown_pre{
+        position: relative;
+        .code_copy_btn {
+            position: absolute;
+            font-size: 16px;
+            color: #fff;
+            right: 16px;
+            top: 16px;
+            cursor: pointer;
+            &:hover{
+                color: aqua;
+            }
+        }
+        .code_wrapper{
+            overflow: auto;
+            padding: 16px;
+            background: rgb(30, 30, 30);
+            color: rgb(220,220,220);
+        }
+    }
+}
+.fas {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+
+
+
+
