@@ -1,4 +1,4 @@
-import React, { createElement } from 'react'
+import React, { createElement, useCallback } from 'react'
 import ReactMarkdown from 'react-markdown'
 import Icon from '@/Icon'
 import remarkGfm from 'remark-gfm'
@@ -16,18 +16,18 @@ type ChildrenProps = {
 }
 const CodeCopyBtn: React.FC<{text: string} > = ({ text }) => {
   const [messageApi, contextHolder] = message.useMessage()
-  const handleClick = async () => {
+  const copy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(text)
       messageApi.success('复制成功')
     } catch {
       messageApi.error('复制失败')
     }
-  }
+  }, [])
   return (
     <>
     {contextHolder}
-    <i className="code_copy_btn" onClick={handleClick}>
+    <i className="code_copy_btn" onClick={copy}>
       <Icon icon='copy'></Icon>
     </i>
     </>
