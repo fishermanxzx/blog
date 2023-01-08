@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
 import Background from '@/components/Background'
-import Markdown from '@/components/Markdown'
-import { getMarkdownFile } from '@/api'
+import MarkdownFile from '@/pages/components/MarkdownFile'
+import { useSearchParams } from 'react-router-dom'
 // type Props = {}
-
 export default function Notes() {
-  const [markdownContent, setMarkdownContent] = useState('')
-  useEffect(() => {
-    getMarkdownFile<string>('c.md').then((data) => {
-      setMarkdownContent(data.data)
-    })
-  }, [])
-
+  const [searchParams, setSearchParams] = useSearchParams()
+  const markdwonFileName = searchParams.get('md')
+  const a = () => {
+    setSearchParams('md=a')
+  }
   return (
     <>
-    <Background></Background>
-    <div className='Note'>
-      <div className='card'>
-        <Markdown content={markdownContent}></Markdown>
+      <Background></Background>
+      <div className='Note'>
+        <div className='card'>
+          <MarkdownFile markdwonFileName={markdwonFileName}></MarkdownFile>
+        </div>
       </div>
-
-    </div>
-
     </>
   )
 }
