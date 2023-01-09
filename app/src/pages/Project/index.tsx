@@ -12,16 +12,12 @@ export default function Notes() {
   }
   return (
     <>
-    <Background></Background>
-    <div className='Note'>
-      <div className='card left'>
-        1
+      <Background></Background>
+      <div className='Project'>
+        <div className='card'>
+          <MarkdownFile markdwonFileName={markdwonFileName} path="/project"></MarkdownFile>
+        </div>
       </div>
-      <div className='card right'>
-      <MarkdownFile markdwonFileName={markdwonFileName}></MarkdownFile>
-
-      </div>
-   </div>
     </>
   )
 }

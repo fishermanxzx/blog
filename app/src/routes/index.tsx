@@ -2,6 +2,7 @@ import React from 'react'
 import Algorithm from '@/pages/Algorithm'
 import Sort from '@/pages/Algorithm/Sort'
 import Notes from '@/pages/Notes'
+import Project from '@/pages/Project'
 import Home from '@/pages/Home'
 import NotFound from '@/pages/404'
 // import { Navigate } from 'react-router-dom'
@@ -14,6 +15,10 @@ export default [
   {
     path: '/notes',
     element: <Notes />
+  },
+  {
+    path: '/project',
+    element: <Project />
   },
   {
     path: '/algorithm',
