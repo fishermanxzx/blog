@@ -17,7 +17,10 @@ export default function Notes() {
     <>
     <Background></Background>
     <div className='Note'>
-      <div className='card'>
+      <div className='card left'>
+        1
+      </div>
+      <div className='card right'>
         <Markdown content={markdownContent}></Markdown>
       </div>
 

@@ -1,6 +1,15 @@
 .Note {
     min-height: 100vh;
+    padding: 16px;
+    display: flex;
+    column-gap: 16px;
     .card{
-        background: #fff;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba($color: #fff, $alpha: 1);
+    }
+   
+    .right{
+        flex: 1;
     }
 }
