@@ -50,6 +50,9 @@ export default function Markdown({ content }: Props) {
       <ReactMarkdown remarkPlugins={[remarkGfm]}
           components={{
             pre: Pre,
+            a({ node, className, children, ...props }) {
+              return <a {...props} target="_blank">{children}</a>
+            },
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className ?? '')
               return !inline && match

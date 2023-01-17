@@ -1,8 +1,9 @@
-.Note {
+.Project {
     min-height: 100vh;
-    padding: 16px;
+    padding: 16px 48px;
     display: flex;
     column-gap: 16px;
+    word-break: break-all;
     .card{
         padding: 16px;
         border-radius: 16px;
