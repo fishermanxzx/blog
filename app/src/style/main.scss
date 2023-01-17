@@ -29,13 +29,22 @@ td {
 
 ul,
 ol {
-    list-style: none;
+    // list-style: none;
+    padding-left: 24px;
 }
+
 table {
     border-spacing: 0px;
     border-collapse: separate;
-    th,td{
+
+    th,
+    td {
         padding: 6px;
         border-bottom: 1px solid #f0f0f0;
     }
+}
+
+a {
+    color: #bf00ff;
+    text-decoration: none;
 }
