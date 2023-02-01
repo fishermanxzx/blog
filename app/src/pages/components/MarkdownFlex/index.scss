@@ -1,0 +1,25 @@
+.Markdown_flex {
+    display: flex;
+    column-gap: 16px;
+    word-break: break-all;
+
+    .card {
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba($color: #fff, $alpha: 1);
+    }
+
+    .left {
+        position: sticky;
+        top: 16px;
+        align-self: flex-start;
+    }
+
+    .right {
+        flex: 1;
+    }
+
+    .active {
+        color: red !important;
+    }
+}

@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import Markdown from '@/components/Markdown'
+import React, { useEffect, useState, forwardRef } from 'react'
+import Markdown, { Anchor } from '@/components/Markdown'
+import type { MarkdownRef } from '@/components/Markdown'
 import { getMarkdownFile } from '@/api'
 type Props = {
   markdwonFileName?: string | null
   path?: string
+  complete?: (anchorTreeArray: Anchor[]) => void
 }
 
-export default function MarkdownFile({ markdwonFileName = '404.md', path = '' }: Props) {
+function MarkdownFile({ markdwonFileName = '404.md', path = '', complete }: Props, ref?: React.Ref<MarkdownRef>) {
   const [markdownContent, setMarkdownContent] = useState('')
   useEffect(() => {
     getMarkdownFile<string>(`${path === '' ? path : path + '/'}${markdwonFileName ?? 404}.md`).then((data) => {
@@ -18,6 +20,7 @@ export default function MarkdownFile({ markdwonFileName = '404.md', path = '' }:
     })
   }, [markdwonFileName])
   return (
-    <Markdown content={markdownContent}></Markdown>
+    <Markdown content={markdownContent} ref={ref} complete={complete}></Markdown>
   )
 }
+export default React.memo(forwardRef(MarkdownFile))

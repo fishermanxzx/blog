@@ -1,0 +1,14 @@
+.markdown_pre {
+    position: relative;
+    .code_copy_btn {
+        position: absolute;
+        font-size: 16px;
+        color: #fff;
+        right: 16px;
+        top: 16px;
+        cursor: pointer;
+        &:hover {
+            color: aqua;
+        }
+    }
+}

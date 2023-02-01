@@ -8,16 +8,21 @@
 # 二、部署
 **技术栈：docker 、docker-compose、nginx**
 
-##  1.准备服务器（**以下步骤在大家选择的服务器平台都有相应的教程，自行查阅**）
+##  1.准备服务器
+（**以下步骤在大家选择的服务器平台都有相应的教程，自行查阅**）
 1. 购买服务器，我使用的是[阿里云](https://www.aliyun.com/)，大家自行选择
 2. 购买域名并备案（备案需要几天，可以先忽略3、4点进行第二大步）
 3. 配置DNS解析
 4. 购买（阿里云上可以免费领取20个单域名证书）SSL证书，并再次配置DNS解析（这一步非必要）
-##  2.进入服务器，安装docker、docker-compose（**使用容器化部署，移植简单且不需要考虑环境差异**）
-1. 安装docker，[教程](https://www.runoob.com/docker/docker-tutorial.html)
-2. 安装docker-compose，[教程](https://www.runoob.com/docker/docker-compose.html)
+##  2.安装docker、docker-compose
+（**使用容器化部署，移植简单且不需要考虑环境差异**）
+1. 进入服务器
+2. 安装docker，[教程](https://www.runoob.com/docker/docker-tutorial.html)
+3. 安装docker-compose，[教程](https://www.runoob.com/docker/docker-compose.html)
 
-##  3.  将项目文件传送到服务器。有以下几种方式
+##  3.  将项目文件传送到服务器。
+有以下几种方式
+
 1. 安装git，采用git拉取
 2. 使用scp命令
 3. 使用其他工具
@@ -31,8 +36,8 @@
 * serve:服务端文件夹（后端）
 * dockerfile_blog:dockerfile配置文件
 * docker-compose.yaml:docker-compose配置文件
-## 4.编写nginx配置文件（不懂的可以自行查阅）
-目录结构：
+## 4.编写nginx配置文件
+**目录结构：**
 
 ![tree nginx](/imgs/project/blog/nginx.png)
 1. nginx.conf
