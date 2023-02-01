@@ -34,12 +34,12 @@ function MarkdownFlex(props: Props) {
   const complete = useCallback((anchorArr: Anchor[]) => {
     setAnchors(anchorArr)
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const nearestNode = findNearestNode(titles)
-        if (nearestNode === null) return
-        removeActiveClassName()
-        addActiveClassName(nearestNode.getAttribute('id') ?? '')
-      })
+      const nearestNode = findNearestNode(titles)
+      if (nearestNode === null) return
+      removeActiveClassName()
+      addActiveClassName(nearestNode.getAttribute('id') ?? '')
+    }, {
+      threshold: 1
     })
     if (markdownRef.current?.markdownContainer) {
       titles = Array.from(markdownRef.current?.markdownContainer.querySelectorAll('*[id*="title_anchor_"]'))
