@@ -1,21 +1,27 @@
+# index.ts
+```js
 import React, { useEffect, useRef } from 'react'
 import './index.scss'
 type Props = {}
+//获取随机字符
 const gerRandomChar = () => {
   const str = 'abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+123456789'
   return str[Math.floor(Math.random() * str.length)]
 }
+//获取随机颜色
 const getRandomColor = () => {
   const colors = ['#33B5E5', '#0099CC', '#AA66CC', '#9933CC', '#99CC00', '#669900', '#FFBB33',
     '#FF8800', '#FF4444', '#CC0000'
   ]
   return colors[Math.floor(Math.random() * colors.length)]
 }
+//初始化canvas并返回上下文
 const initCanvas = (canvas: HTMLCanvasElement, width: number, height: number) => {
   canvas.width = width
   canvas.height = height
   return canvas.getContext('2d')!
 }
+// 获取初始化对象
 const getParamsObj = () => {
   let width = 0
   let height = 0
@@ -33,13 +39,16 @@ const getParamsObj = () => {
       }
       return height
     },
+    // 列数
     get columnCount() {
       if (this.isDirty) {
         columnCount = Math.floor(window.innerWidth / this.columnWidth)
       }
       return columnCount
     },
+    // 列宽
     columnWidth: 20,
+    // 数据是否已脏，已脏需要重新计算
     isDirty: true
   }
 }
@@ -73,11 +82,14 @@ export default function Background({ }: Props) {
     let timer: null | number = null
     const startDraw = () => {
       draw()
+      //绘制一次后重置为不脏   
       paramsObj.isDirty = false
       timer = window.requestAnimationFrame(startDraw)
     }
+    // 窗口变化需要重新获取参数
     const handleResize = () => {
       time = 1
+      // 标记数据已脏重新获取宽高
       paramsObj.isDirty = true
       canvas.width = paramsObj.width
       canvas.height = paramsObj.height
@@ -95,3 +107,13 @@ export default function Background({ }: Props) {
     <canvas ref={canvasRef}></canvas>
   )
 }
+```
+# index.scss
+```scss
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+```

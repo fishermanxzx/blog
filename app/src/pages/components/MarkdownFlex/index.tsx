@@ -24,7 +24,7 @@ function findNearestNode(elements: HTMLHeadingElement[]): null | HTMLHeadingElem
 }
 type Props = {
   markdwonFileName?: string | null
-  path?: string
+  dir?: string
 }
 function MarkdownFlex(props: Props) {
   let titles: HTMLHeadingElement[] = []
@@ -49,7 +49,7 @@ function MarkdownFlex(props: Props) {
     }
   }, [])
   return <div className='Markdown_flex'>
-        <div className='card left'>
+        <div className={`card left ${anchors.length === 0 ? 'hidden' : ''}`} >
           <AnchorsMenu anchors={anchors}></AnchorsMenu>
         </div>
         <div className='card right'>

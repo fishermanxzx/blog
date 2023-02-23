@@ -4,14 +4,14 @@ import type { MarkdownRef } from '@/components/Markdown'
 import { getMarkdownFile } from '@/api'
 type Props = {
   markdwonFileName?: string | null
-  path?: string
+  dir?: string
   complete?: (anchorTreeArray: Anchor[]) => void
 }
 
-function MarkdownFile({ markdwonFileName = '404.md', path = '', complete }: Props, ref?: React.Ref<MarkdownRef>) {
+function MarkdownFile({ markdwonFileName = '404.md', dir = '', complete }: Props, ref?: React.Ref<MarkdownRef>) {
   const [markdownContent, setMarkdownContent] = useState('')
   useEffect(() => {
-    getMarkdownFile<string>(`${path === '' ? path : path + '/'}${markdwonFileName ?? 404}.md`).then((data) => {
+    getMarkdownFile<string>(`${dir === '' ? dir : dir + '/'}${markdwonFileName ?? 404}.md`).then((data) => {
       if (!data.data) {
         getMarkdownFile<string>('404.md').then(data => setMarkdownContent(data.data))
         return

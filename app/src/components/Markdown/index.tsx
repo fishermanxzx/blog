@@ -47,7 +47,6 @@ function Markdown({ content, complete }: Props, ref?: React.Ref<MarkdownRef>) {
       return length + getIndex(child.children)
     }, 0)
   }
-  console.log(123)
   const enqueueAnchorTreeArray = (level: number, content: React.ReactNode & React.ReactNode[]) => {
     const id = `title_anchor_${getIndex(anchorTreeArray) + 1}`
     const anchor = getAnchorObj(level, id, content)
