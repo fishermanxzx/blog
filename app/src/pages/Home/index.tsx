@@ -63,7 +63,7 @@ function Home() {
     children: <>图片懒加载的几种方式</>
   }, {
     title: '本博客搭建、部署全流程',
-    directTo: '/project?md=blog',
+    directTo: '/project?md=本博客搭建、部署全流程',
     children: <>
     讲解项目搭建流程及部署，附上仓库代码。
     </>

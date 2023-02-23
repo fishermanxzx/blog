@@ -10,7 +10,9 @@
         background: rgba($color: #fff, $alpha: 1);
         box-sizing: border-box;
     }
-
+    .hidden{
+        display: none;
+    }
     .left {
         position: sticky;
         top: 16px;

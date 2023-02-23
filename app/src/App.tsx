@@ -5,6 +5,7 @@ import routes from './routes'
 import { useRoutes, useLocation } from 'react-router-dom'
 import BackToTop from '@/components/BackToTop'
 import BackToHome from '@/components/BackToHome'
+
 function App() {
   const element = useRoutes(routes)
   const location = useLocation()
