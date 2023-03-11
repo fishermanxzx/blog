@@ -1,16 +1,17 @@
-import React from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
-type Props = {}
-
-export default function Algorithm({}: Props) {
+import React, { useEffect, useState, useRef, useCallback } from 'react'
+import './index.scss'
+import Background from '@/components/Background'
+import { useSearchParams, useLocation } from 'react-router-dom'
+import MarkdownFlex from '../components/MarkdownFlex'
+import Menus from '../components/MarkdownMenus'
+export default function Notes() {
+  const location = useLocation()
   return (
-    <div>Algorithm
-        <div>
-            <NavLink to="sort">排序算法</NavLink>
-        </div>
-        <div>
-            <Outlet></Outlet>
-        </div>
-    </div>
+    <>
+      <Background></Background>
+      <div className='Algorithm'>
+        {<Menus dir={location.pathname}/>}
+      </div>
+    </>
   )
 }

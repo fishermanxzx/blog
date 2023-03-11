@@ -11,7 +11,7 @@ function Home() {
     title: '基础'
   }, {
     path: '/algorithm',
-    title: '算法'
+    title: '数据结构与算法'
   }, {
     path: '/notes',
     title: '笔记'
@@ -19,8 +19,8 @@ function Home() {
     path: '/source_code',
     title: '源码解析'
   }, {
-    path: '/interview_questions',
-    title: '前端每日一题'
+    path: '/interview',
+    title: '前端面试题'
   }, {
     path: '/project',
     title: '项目实战'

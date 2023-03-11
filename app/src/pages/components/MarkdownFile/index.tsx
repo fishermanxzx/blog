@@ -3,24 +3,28 @@ import Markdown, { Anchor } from '@/components/Markdown'
 import type { MarkdownRef } from '@/components/Markdown'
 import { getMarkdownFile } from '@/api'
 type Props = {
-  markdwonFileName?: string | null
-  dir?: string
+  markdwonFilePath?: string | null
   complete?: (anchorTreeArray: Anchor[]) => void
 }
 
-function MarkdownFile({ markdwonFileName = '404.md', dir = '', complete }: Props, ref?: React.Ref<MarkdownRef>) {
+function MarkdownFile({ markdwonFilePath, complete }: Props, ref?: React.Ref<MarkdownRef>) {
   const [markdownContent, setMarkdownContent] = useState('')
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
-    getMarkdownFile<string>(`${dir === '' ? dir : dir + '/'}${markdwonFileName ?? 404}.md`).then((data) => {
+    if (!markdwonFilePath) return
+    setLoading(true)
+    getMarkdownFile<string>(`${markdwonFilePath}`).then((data) => {
       if (!data.data) {
-        getMarkdownFile<string>('404.md').then(data => setMarkdownContent(data.data))
         return
       }
       setMarkdownContent(data.data)
+      setLoading(false)
     })
-  }, [markdwonFileName])
+  }, [markdwonFilePath])
   return (
-    <Markdown content={markdownContent} ref={ref} complete={complete}></Markdown>
+    <>
+      {loading ? 'Loading' : <Markdown content={markdownContent} ref={ref} complete={complete}></Markdown>}
+    </>
   )
 }
 export default React.memo(forwardRef(MarkdownFile))

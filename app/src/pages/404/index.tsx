@@ -88,7 +88,6 @@ export default function index({}: Props) {
         ctx.fillRect(0, 0, width, height)
         ctx.globalCompositeOperation = 'lighter'
         for (let i = 1, l = stars.length; i < l; i++) {
-        //   console.log(stars[i])
           stars[i].draw()
         };
         timer = window.requestAnimationFrame(animation)
