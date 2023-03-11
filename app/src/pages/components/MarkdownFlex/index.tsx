@@ -23,8 +23,7 @@ function findNearestNode(elements: HTMLHeadingElement[]): null | HTMLHeadingElem
   return nearestNode
 }
 type Props = {
-  markdwonFileName?: string | null
-  dir?: string
+  markdwonFilePath?: string | null
 }
 function MarkdownFlex(props: Props) {
   let titles: HTMLHeadingElement[] = []
@@ -49,12 +48,12 @@ function MarkdownFlex(props: Props) {
     }
   }, [])
   return <div className='Markdown_flex'>
-        <div className={`card left ${anchors.length === 0 ? 'hidden' : ''}`} >
-          <AnchorsMenu anchors={anchors}></AnchorsMenu>
-        </div>
-        <div className='card right'>
-          <MarkdownFile {...props} ref={markdownRef} complete={complete}></MarkdownFile>
-        </div>
+    <div className={'card left'} >
+      <AnchorsMenu anchors={anchors}></AnchorsMenu>
     </div>
+    <div className='card right'>
+      <MarkdownFile {...props} ref={markdownRef} complete={complete}></MarkdownFile>
+    </div>
+  </div>
 }
 export default MarkdownFlex

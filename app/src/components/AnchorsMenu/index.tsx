@@ -15,7 +15,7 @@ function transformAnchor(arr: Anchor[]) {
 export default function AnchorsMenu({ anchors }: Props) {
   return (
    <div>
-     { transformAnchor(anchors) }
+     { anchors.length > 0 ? transformAnchor(anchors) : null }
    </div>
   )
 }
