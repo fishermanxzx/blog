@@ -37,7 +37,7 @@ export default [
     element: <Interview />
   },
   {
-    path: '/markdown',
+    path: '/markdownPage',
     element: <MarkdownPage />
   },
   {
