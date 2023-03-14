@@ -27,43 +27,43 @@ function Home() {
   }]
   const pages = [{
     title: '手写Promise',
-    directTo: '/markdown?md=wirte_promise',
+    directTo: '/markdownPage?md=wirte_promise',
     children: <>手写Promise,通过率100%</>
   }, {
     title: 'Promise相关题目',
-    directTo: '/markdown?md=questions_promise',
+    directTo: '/markdownPage?md=questions_promise',
     children: <>详解面试常考的promise题目</>
   }, {
     title: 'this指向',
-    directTo: '/markdown?md=this',
+    directTo: '/markdownPage?md=this',
     children: <>还在被this指向折磨，看看这篇文章</>
   }, {
     title: '排序算法',
-    directTo: '/markdown?md=sort',
+    directTo: '/markdownPage?md=sort',
     children: <>排序算法</>
   }, {
     title: '函数式编程及链式调用',
-    directTo: '/markdown?md=functional_programming',
+    directTo: '/markdownPage?md=functional_programming',
     children: <>函数式编程及链式调用</>
   }, {
     title: 'Vue3的响应式原理',
-    directTo: '/markdown?md=proxy',
+    directTo: '/markdownPage?md=proxy',
     children: <>详细讲解Vue3使用Proxy时限响应式</>
   }, {
     title: 'Vite+Vue3+Element Plus 开发 Chrome extension',
-    directTo: '/markdown?md=chrome_extension',
+    directTo: '/markdownPage?md=chrome_extension',
     children: <>Chrome插件的快捷开发</>
   }, {
     title: 'canvas实现代码雨',
-    directTo: '/markdown?md=code_rain',
+    directTo: '/markdownPage?md=code_rain',
     children: <>手写实现本博客背景的代码雨功能</>
   }, {
     title: 'img自动懒加载',
-    directTo: '/markdown?md=img_lazy_load',
+    directTo: '/markdownPage?md=img_lazy_load',
     children: <>图片懒加载的几种方式</>
   }, {
     title: '本博客搭建、部署全流程',
-    directTo: '/markdown?md=本博客搭建、部署全流程',
+    directTo: '/markdownPage?md=本博客搭建、部署全流程',
     children: <>
     讲解项目搭建流程及部署，附上仓库代码。
     </>
