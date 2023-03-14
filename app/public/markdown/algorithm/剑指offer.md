@@ -181,5 +181,41 @@ var reverseList = function(head) {
 
 ## 5、复杂链表的控制
 请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。
+```js
+/**
+ * // Definition for a Node.
+ * function Node(val, next, random) {
+ *    this.val = val;
+ *    this.next = next;
+ *    this.random = random;
+ * };
+ */
+
+/**
+ * @param {Node} head
+ * @return {Node}
+ */
+var copyRandomList = function(head) {
+    if(!head) return null
+    const map = new Map()
+    const getNewNode = (node)=>{
+        if(node===null) return null
+        if(!map.has(node)){
+            map.set(node,{val:node.val})
+            Object.assign(map.get(node),
+            {
+                next:getNewNode(node.next),
+                random:getNewNode(node.random)
+            })
+            /*
+            这样写会死循环，因为map里面永远是空的
+            map.set(node,{val:node.val,next:getNewNode(node.next), random:getNewNode(node.random)})
+            */
+        }
+        return map.get(node)
+    }
+    return getNewNode(head)
+};
+```
 # 二、笔记速达
 ## [快速幂算法](/markdownPage/?md=快速幂算法)
