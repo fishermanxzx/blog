@@ -100,4 +100,4 @@ const multiply = (a, b) => {
 */
 ```
 # 二、笔记速达
-## [快速幂算法](/markdown/?md=快速幂算法)
+## [快速幂算法](/markdownPage/?md=快速幂算法)
