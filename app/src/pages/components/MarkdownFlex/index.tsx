@@ -48,11 +48,11 @@ function MarkdownFlex(props: Props) {
     }
   }, [])
   return <div className='Markdown_flex'>
-    <div className={'card left'} >
-      <AnchorsMenu anchors={anchors}></AnchorsMenu>
-    </div>
-    <div className='card right'>
+    <div className='card left'>
       <MarkdownFile {...props} ref={markdownRef} complete={complete}></MarkdownFile>
+    </div>
+    <div className={'card right'} >
+      <AnchorsMenu anchors={anchors}></AnchorsMenu>
     </div>
   </div>
 }

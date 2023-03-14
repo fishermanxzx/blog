@@ -1,4 +1,5 @@
 # 一、简单
+[原题](https://leetcode.cn/study-plan/lcof/?progress=xh8zkeud)
 ## 1、用两个栈实现队列
 
 ```js
@@ -99,5 +100,86 @@ const multiply = (a, b) => {
 空间复杂度：O(1)。
 */
 ```
+
+## 3、包含min函数的栈
+定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数，调用 min、push 及 pop 的时间复杂度都是 O(1)。
+```js
+/*
+1、准备一个辅助栈，记录每个时刻的最小值。
+2、当元素入栈时，取辅助栈栈顶存储的最小值，与当前元素比较得出最小值，将最小值插入辅助栈中；
+3、当一个元素要出栈时，我们把辅助栈的栈顶元素也一并弹出；在任意一个时刻，栈内元素的最小值就存储在辅助栈的栈顶元素中。
+*/
+/**
+ * initialize your data structure here.
+ */
+var MinStack = function() {
+  this.stack = []
+  this.minStack = []
+};
+
+/** 
+ * @param {number} x
+ * @return {void}
+ */
+MinStack.prototype.push = function(x) {
+    this.stack.push(x)
+    min = this.minStack[this.minStack.length-1]
+    min = min==undefined?x:min>x?x:min
+    this.minStack.push(min)
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    this.minStack.pop()
+     return this.stack.pop()
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+     return this.stack[this.stack.length-1]
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.min = function() {
+     return this.minStack[this.minStack.length-1]
+};
+```
+
+## 4、反转链表
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    // 重新构建的链表头
+    let current = null
+    // 下个待加入的节点
+    let next = head
+    while(next){
+        const temp = next.next
+        next.next = current
+        current = next
+        next = temp
+    }
+  return  current
+};
+```
+
+## 5、复杂链表的控制
+请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。
 # 二、笔记速达
 ## [快速幂算法](/markdownPage/?md=快速幂算法)
