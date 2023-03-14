@@ -1,6 +1,6 @@
 import service from '@/request'
 
 export const getMarkdownFile = <T>(filePath: string) => service<T>({
-  url: `/markdownPage${filePath}`,
+  url: `/markdown${filePath}`,
   method: 'GET'
 })
