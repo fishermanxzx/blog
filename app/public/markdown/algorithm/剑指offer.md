@@ -217,5 +217,45 @@ var copyRandomList = function(head) {
     return getNewNode(head)
 };
 ```
+
+## 6、0～n-1中缺失的数字
+一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。
+输入: [0,1,3]
+输出: 2
+```js
+// 记录巧妙的方法
+// 方法1 位运算
+/*
+ 根据出现的次数的奇偶性，可以使用按位异或运算得到缺失的数字。
+ 缺失的数字出现了一次，其余的数字都出现了两次。
+ 因此第一次对数组中每个数异或，第二次对所有数异或，结果即为缺失的数字
+*/
+var missingNumber = function(nums) {
+    let xor = 0;
+    const n = nums.length + 1;
+    for (let i = 0; i < n - 1; i++) {
+        xor ^= nums[i];
+    }
+    for (let i = 0; i <= n - 1; i++) {
+        xor ^= i;
+    }
+    return xor;
+};
+
+// 方法2 数学
+/*
+根据高斯求和公式，
+*/
+var missingNumber = function(nums) {
+    const n = nums.length + 1;
+    let total = Math.floor(n * (0 + (n - 1)) / 2);
+    let arrSum = 0;
+    for (let i = 0; i < n - 1; i++) {
+        arrSum += nums[i];
+    }
+    return total - arrSum;
+}
+
+```
 # 二、笔记速达
 ## [快速幂算法](/markdownPage/?md=快速幂算法)
