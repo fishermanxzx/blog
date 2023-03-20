@@ -257,5 +257,79 @@ var missingNumber = function(nums) {
 }
 
 ```
+
+## 7、二维数组中的查找
+在一个 n * m 的二维数组中，每一行都按照从左到右 非递减 的顺序排序，每一列都按照从上到下 非递减 的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+
+```js
+// 示例：
+// 现有矩阵 matrix 如下：
+[
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]
+]
+// 给定 target = 5，返回 true
+// 给定 target = 20，返回 false
+```
+
+```js
+/*
+将矩阵顺时针旋转 45° ，并将其转化为图形式，发现其类似于二叉搜索树。
+算法流程：
+1、从矩阵 matrix 左下角元素（索引设为 (i, j) ）开始遍历，并与目标值对比：
+a、当 matrix[i][j] > target 时，执行 i-- ，即消去第 i 行元素；
+b、当 matrix[i][j] < target 时，执行 j++ ，即消去第 j 列元素；
+c、当 matrix[i][j] = target 时，返回 true ，代表找到目标值。
+2、若行索引或列索引越界，则代表矩阵中无目标值，返回 false 。
+*/
+```
+
+## 8、旋转数组的最小数字
+
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。
+给你一个可能存在 重复 元素值的数组 numbers ，它原来是一个升序排列的数组，并按上述情形进行了一次旋转。请返回旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一次旋转，该数组的最小值为 1。  
+注意，数组 [a[0], a[1], a[2], ..., a[n-1]] 旋转一次 的结果为数组 [a[n-1], a[0], a[1], a[2], ..., a[n-2]] 。
+
+```js
+/*
+示例 1：
+输入：numbers = [3,4,5,1,2]
+输出：1
+示例 2：
+输入：numbers = [2,2,2,0,1]
+输出：0
+*/
+```
+
+```js
+/*
+二分查找:
+考虑数组最后一个元素x:
+设左边界为 low，右边界为 hight,区间的中点为pivot
+1、numbers[pivot] < numbers[high],这说明 numbers[pivot] 是最小值右侧的元素，因此我们可以忽略二分查找区间的右半部分。
+2、numbers[pivot]>numbers[high],这说明 numbers[pivot] 是最小值左侧的元素，因此我们可以忽略二分查找区间的左半部分。
+3、numbers[pivot]==numbers[high],由于重复元素的存在，并不能确定 numbers[pivot] 究竟在最小值的左侧还是右侧，不能莽撞地忽略某一部分的元素。唯一可以知道的是，由于它们的值相同，所以无论 numbers[high] 是不是最小值，都有一个它的「替代品」
+numbers[pivot]numbers[pivot]，因此可以忽略二分查找区间的右端点。
+*/
+var minArray = function(numbers) {
+    let low = 0;
+    let high = numbers.length - 1;
+    while (low < high) {
+        const pivot = low + Math.floor((high - low) / 2);
+        if (numbers[pivot] < numbers[high]) {
+            high = pivot;
+        } else if (numbers[pivot] > numbers[high]) {
+            low = pivot + 1;
+        } else {
+            high -= 1;
+        }
+    }
+    return numbers[low];
+}
+```
 # 二、笔记速达
 ## [快速幂算法](/markdownPage/?md=快速幂算法)

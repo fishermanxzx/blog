@@ -24,4 +24,7 @@
     a{
        text-decoration: underline;
     }
+    .markdown_pre + .markdown_pre{
+        margin-top: 16px;
+    }
 }
