@@ -208,7 +208,7 @@ var copyRandomList = function(head) {
                 random:getNewNode(node.random)
             })
             /*
-            这样写会死循环，因为map里面永远是空的
+            这样写会死循环，因为此语句没能成功执行set,map里面永远是空的
             map.set(node,{val:node.val,next:getNewNode(node.next), random:getNewNode(node.random)})
             */
         }
