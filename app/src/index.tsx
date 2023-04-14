@@ -5,13 +5,11 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import initHeart from '@/components/Heart'
 initHeart()
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-)
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   // <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
   // </React.StrictMode>
 )

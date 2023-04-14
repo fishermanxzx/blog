@@ -9,8 +9,8 @@ export default function BackToTop() {
     document.documentElement.style.scrollBehavior = 'auto'
   }, [])
   return (
-    <div className='BackToTop' onClick={toTop}>
-        <Icon icon='arrow-up' className='icon'></Icon>
+    <div className="BackToTop" onClick={toTop}>
+      <Icon icon="arrow-up" className="icon"></Icon>
     </div>
   )
 }

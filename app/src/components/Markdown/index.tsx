@@ -1,4 +1,13 @@
-import React, { createElement, forwardRef, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef, useState } from 'react'
+import React, {
+  createElement,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+  useState
+} from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -20,7 +29,11 @@ export type Anchor = {
   id: string
   parent?: Anchor
 }
-const getAnchorObj = (level: number, id: string, content: React.ReactNode & React.ReactNode[]): Anchor => {
+const getAnchorObj = (
+  level: number,
+  id: string,
+  content: React.ReactNode & React.ReactNode[]
+): Anchor => {
   return {
     level,
     content,
@@ -29,7 +42,9 @@ const getAnchorObj = (level: number, id: string, content: React.ReactNode & Reac
   }
 }
 
-export type MarkdownRef = {anchorTreeArray: Anchor[], markdownContainer: HTMLDivElement | null} | undefined
+export type MarkdownRef =
+  | { anchorTreeArray: Anchor[]; markdownContainer: HTMLDivElement | null }
+  | undefined
 function Markdown({ content, complete }: Props, ref?: React.Ref<MarkdownRef>) {
   const anchorTreeArray: Anchor[] = []
   const getPreAnchor = (arr: Anchor[]): Anchor => {
@@ -47,7 +62,10 @@ function Markdown({ content, complete }: Props, ref?: React.Ref<MarkdownRef>) {
       return length + getIndex(child.children)
     }, 0)
   }
-  const enqueueAnchorTreeArray = (level: number, content: React.ReactNode & React.ReactNode[]) => {
+  const enqueueAnchorTreeArray = (
+    level: number,
+    content: React.ReactNode & React.ReactNode[]
+  ) => {
     const id = `title_anchor_${getIndex(anchorTreeArray) + 1}`
     const anchor = getAnchorObj(level, id, content)
     if (anchorTreeArray.length === 0) {
@@ -86,60 +104,86 @@ function Markdown({ content, complete }: Props, ref?: React.Ref<MarkdownRef>) {
   }, [content])
   const markdownRef = useRef<HTMLDivElement>(null)
   return (
-    <div className="Markdown"
-    ref={markdownRef}
-    >
-      <ReactMarkdown remarkPlugins={[remarkGfm]}
+    <div className="Markdown" ref={markdownRef}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           pre: Pre,
           a({ node, className, children, ...props }) {
-            return <a {...props} target="_blank">{children}</a>
+            return (
+              <a {...props} target="_blank">
+                {children}
+              </a>
+            )
           },
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className ?? '')
-            return !inline && match
-              ? (
-                <SyntaxHighlighter
-                  language={match[1]}
-                  PreTag={CodeWrapper}
-                  {...props}
-                  style={highlighterStyle}
-                >
-                  {String(children)}
-                </SyntaxHighlighter>
-                )
-              : (
-                <code className={className} {...props}>
-                  {children}
-                </code>
-                )
+            return !inline && match ? (
+              <SyntaxHighlighter
+                language={match[1]}
+                PreTag={CodeWrapper}
+                {...props}
+                style={highlighterStyle}
+              >
+                {String(children)}
+              </SyntaxHighlighter>
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            )
           },
           h1({ node, className, children, level, ...props }) {
             const id = enqueueAnchorTreeArray(level, children)
-            return <h1 {...props} id={id}>{children}</h1>
+            return (
+              <h1 {...props} id={id}>
+                {children}
+              </h1>
+            )
           },
           h2({ node, className, children, level, ...props }) {
             const id = enqueueAnchorTreeArray(level, children)
-            return <h2 {...props} id={id}>{children}</h2>
+            return (
+              <h2 {...props} id={id}>
+                {children}
+              </h2>
+            )
           },
           h3({ node, className, children, level, ...props }) {
             const id = enqueueAnchorTreeArray(level, children)
-            return <h3 {...props} id={id}>{children}</h3>
+            return (
+              <h3 {...props} id={id}>
+                {children}
+              </h3>
+            )
           },
           h4({ node, className, children, level, ...props }) {
             const id = enqueueAnchorTreeArray(level, children)
-            return <h4 {...props} id={id}>{children}</h4>
+            return (
+              <h4 {...props} id={id}>
+                {children}
+              </h4>
+            )
           },
           h5({ node, className, children, level, ...props }) {
             const id = enqueueAnchorTreeArray(level, children)
-            return <h5 {...props} id={id}>{children}</h5>
+            return (
+              <h5 {...props} id={id}>
+                {children}
+              </h5>
+            )
           },
           h6({ node, className, children, level, ...props }) {
             const id = enqueueAnchorTreeArray(level, children)
-            return <h6 {...props} id={id}>{children}</h6>
+            return (
+              <h6 {...props} id={id}>
+                {children}
+              </h6>
+            )
           }
         }}
-      >{content}
+      >
+        {content}
       </ReactMarkdown>
     </div>
   )

@@ -6,12 +6,25 @@ const gerRandomChar = () => {
   return str[Math.floor(Math.random() * str.length)]
 }
 const getRandomColor = () => {
-  const colors = ['#33B5E5', '#0099CC', '#AA66CC', '#9933CC', '#99CC00', '#669900', '#FFBB33',
-    '#FF8800', '#FF4444', '#CC0000'
+  const colors = [
+    '#33B5E5',
+    '#0099CC',
+    '#AA66CC',
+    '#9933CC',
+    '#99CC00',
+    '#669900',
+    '#FFBB33',
+    '#FF8800',
+    '#FF4444',
+    '#CC0000'
   ]
   return colors[Math.floor(Math.random() * colors.length)]
 }
-const initCanvas = (canvas: HTMLCanvasElement, width: number, height: number) => {
+const initCanvas = (
+  canvas: HTMLCanvasElement,
+  width: number,
+  height: number
+) => {
   canvas.width = width
   canvas.height = height
   return canvas.getContext('2d')!
@@ -43,7 +56,7 @@ const getParamsObj = () => {
     isDirty: true
   }
 }
-export default function Background({ }: Props) {
+export default function Background({}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   useEffect(() => {
     const canvas = canvasRef.current
@@ -91,7 +104,5 @@ export default function Background({ }: Props) {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
-  return (
-    <canvas ref={canvasRef}></canvas>
-  )
+  return <canvas ref={canvasRef}></canvas>
 }

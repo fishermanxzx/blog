@@ -23,12 +23,16 @@ const gameloop = () => {
     hearts[i].y--
     hearts[i].scale += 0.005
     hearts[i].alpha -= 0.01
-    hearts[i].el.style.cssText = `left:${hearts[i].x}px;top:${hearts[i].y}px;opacity:${hearts[i].alpha};transform:scale(${hearts[i].scale},${hearts[i].scale}) rotate(45deg);background:${hearts[i].color}`
+    hearts[
+      i
+    ].el.style.cssText = `left:${hearts[i].x}px;top:${hearts[i].y}px;opacity:${hearts[i].alpha};transform:scale(${hearts[i].scale},${hearts[i].scale}) rotate(45deg);background:${hearts[i].color}`
   }
   window.requestAnimationFrame(gameloop)
 }
 const randomColor = () => {
-  const [r, g, b] = new Array(3).fill(255).map(i => Math.floor(Math.random() * i))
+  const [r, g, b] = new Array(3)
+    .fill(255)
+    .map(i => Math.floor(Math.random() * i))
   return `rgb(${r},${g},${b})`
 }
 const createHeart = (event: MouseEvent) => {
@@ -45,12 +49,14 @@ const createHeart = (event: MouseEvent) => {
   document.body.appendChild(div)
 }
 const attachClickEvent = () => {
-  window.addEventListener('click', (e) => {
+  window.addEventListener('click', e => {
     createHeart(e)
   })
 }
 const initHeart = () => {
-  css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}")
+  css(
+    ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
+  )
   attachClickEvent()
   gameloop()
 }

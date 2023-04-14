@@ -14,19 +14,22 @@ const CodeCopyBtn: React.FC<{ text: string }> = ({ text }) => {
     }
   }, [])
   return (
-      <>
-        {contextHolder}
-        <i className="code_copy_btn" onClick={copy}>
-          <Icon icon='copy'></Icon>
-        </i>
-      </>
+    <>
+      {contextHolder}
+      <i className="code_copy_btn" onClick={copy}>
+        <Icon icon="copy"></Icon>
+      </i>
+    </>
   )
 }
 const Pre: React.FC<ChildrenProps> = ({ children }) => {
-  const codeText = ((children[0] as React.ReactElement<ChildrenProps>).props.children[0]) as string
-  return <pre className="markdown_pre">
+  const codeText = (children[0] as React.ReactElement<ChildrenProps>).props
+    .children[0] as string
+  return (
+    <pre className="markdown_pre">
       <CodeCopyBtn text={codeText} />
       {children}
     </pre>
+  )
 }
 export default Pre

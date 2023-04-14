@@ -7,12 +7,17 @@ import Interview from '@/pages/Interview'
 import Home from '@/pages/Home'
 import NotFound from '@/pages/404'
 import MarkdownPage from '@/pages/MarkdownPage'
+import Basic from '@/pages/Basic'
 // import { Navigate } from 'react-router-dom'
 
 export default [
   {
     path: '/',
     element: <Home />
+  },
+  {
+    path: '/basic',
+    element: <Basic />
   },
   {
     path: '/notes',
@@ -44,8 +49,8 @@ export default [
     path: '*',
     element: <NotFound />
   }
-//   {
-//     path: '/',
-//     element: <Navigate to="/about" />
-//   }
+  //   {
+  //     path: '/',
+  //     element: <Navigate to="/about" />
+  //   }
 ]

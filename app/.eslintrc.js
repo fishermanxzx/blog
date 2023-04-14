@@ -3,10 +3,7 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard-with-typescript'
-  ],
+  extends: ['plugin:react/recommended', 'standard-with-typescript', 'prettier'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'], // Your TypeScript files extension
@@ -23,31 +20,31 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react',
-    '@typescript-eslint'
-  ],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'react/jsx-filename-extension': [
-      2,
-      { extensions: ['ts', 'tsx'] }
-    ],
+    // react
+    'react/jsx-filename-extension': [2, { extensions: ['ts', 'tsx'] }],
+    'react/no-unescaped-entities': 'off',
+    'react/react-in-jsx-scope': 'off',
+    // typescript
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/triple-slash-reference': 0,
     '@typescript-eslint/consistent-type-definitions': 'off',
-    'no-empty-pattern': 'off',
     '@typescript-eslint/space-before-function-paren': 'off',
-    'no-tabs': 'off',
-    'no-mixed-spaces-and-tabs': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    'no-new': 'off',
-    'react/no-unescaped-entities': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/promise-function-async': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
-    'no-cond-assign': 'off'
+    // js
+    'no-empty-pattern': 'off',
+    'no-tabs': 'off',
+    'no-mixed-spaces-and-tabs': 'off',
+    'no-new': 'off',
+    'no-cond-assign': 'off',
+    // prettier
+    'prettier/prettier': 'error'
   }
 }
