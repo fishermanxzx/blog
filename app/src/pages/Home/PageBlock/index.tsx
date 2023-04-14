@@ -9,29 +9,22 @@ type Props = {
   directTo: string
 }
 
-export default function PageBlock({
-  children,
-  title,
-  directTo
-}: Props) {
+export default function PageBlock({ children, title, directTo }: Props) {
   const navigate = useNavigate()
   const handleClickMore = useCallback(() => {
     navigate(directTo)
   }, [])
   const imgSrc = `/imgs/${random(0, 127)}.jpg`
   return (
-    <div className='PageBlock'>
-      <div className='block_img'>
+    <div className="PageBlock">
+      <div className="block_img">
         <img src={imgSrc} loading="lazy" />
-        <h1 className='page_name'>{title}</h1>
+        <h1 className="page_name">{title}</h1>
       </div>
-      <div className='introduction'>
-        {children ?? <>
-        </>}
-      </div>
+      <div className="introduction">{children ?? <></>}</div>
       <div className="mask" onClick={handleClickMore}>
         <span>More</span>
-        <Icon icon='gengduo' className='more'></Icon>
+        <Icon icon="gengduo" className="more"></Icon>
       </div>
     </div>
   )

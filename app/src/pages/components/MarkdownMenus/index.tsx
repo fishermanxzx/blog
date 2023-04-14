@@ -8,9 +8,20 @@ type Props = {
 
 function MarkdownMenus({ dir }: Props) {
   const menus = transformMenus(dir)
-  return <>
-    <div className='MarkdownMenus'>
-      {menus.map((menu, index) => <Link to={`/markdownPage?md=${menu.fileName}`} className='menu_item' key={index}>{menu.fileName}</Link>)}
-    </div></>
+  return (
+    <>
+      <div className="MarkdownMenus">
+        {menus.map((menu, index) => (
+          <Link
+            to={`/markdownPage?md=${menu.fileName}`}
+            className="menu_item"
+            key={index}
+          >
+            {menu.fileName}
+          </Link>
+        ))}
+      </div>
+    </>
+  )
 }
 export default MarkdownMenus

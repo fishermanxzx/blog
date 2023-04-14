@@ -9,9 +9,7 @@ export default function Notes() {
   return (
     <>
       <Background></Background>
-      <div className='Interview'>
-        {<Menus dir={location.pathname}/>}
-      </div>
+      <div className="Interview">{<Menus dir={location.pathname} />}</div>
     </>
   )
 }

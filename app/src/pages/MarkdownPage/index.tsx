@@ -7,12 +7,15 @@ import { mardownPaths } from '@/utils'
 export default function Notes() {
   const [searchParams] = useSearchParams()
   const markdownFileName = searchParams.get('md') ?? '404'
-  const markdwonFilePath = mardownPaths.find(item => item.includes(markdownFileName + '.md'))?.slice(1) ?? '/404.md'
+  const markdwonFilePath =
+    mardownPaths
+      .find(item => item.includes(markdownFileName + '.md'))
+      ?.slice(1) ?? '/404.md'
   return (
     <>
       <Background></Background>
-      <div className='MarkdownPage'>
-        {<MarkdownFlex markdwonFilePath={markdwonFilePath}/>}
+      <div className="MarkdownPage">
+        {<MarkdownFlex markdwonFilePath={markdwonFilePath} />}
       </div>
     </>
   )

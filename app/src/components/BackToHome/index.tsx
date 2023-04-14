@@ -9,8 +9,8 @@ export default function BackToHome() {
     navigate('/')
   }, [])
   return (
-    <div className='BackToHome' onClick={toTop}>
-        <Icon icon='home' className='icon'></Icon>
+    <div className="BackToHome" onClick={toTop}>
+      <Icon icon="home" className="icon"></Icon>
     </div>
   )
 }

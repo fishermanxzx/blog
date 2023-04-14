@@ -7,13 +7,16 @@ type Props = {
   complete?: (anchorTreeArray: Anchor[]) => void
 }
 
-function MarkdownFile({ markdwonFilePath, complete }: Props, ref?: React.Ref<MarkdownRef>) {
+function MarkdownFile(
+  { markdwonFilePath, complete }: Props,
+  ref?: React.Ref<MarkdownRef>
+) {
   const [markdownContent, setMarkdownContent] = useState('')
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     if (!markdwonFilePath) return
     setLoading(true)
-    getMarkdownFile<string>(`${markdwonFilePath}`).then((data) => {
+    getMarkdownFile<string>(`${markdwonFilePath}`).then(data => {
       if (!data.data) {
         return
       }
@@ -23,7 +26,15 @@ function MarkdownFile({ markdwonFilePath, complete }: Props, ref?: React.Ref<Mar
   }, [markdwonFilePath])
   return (
     <>
-      {loading ? 'Loading' : <Markdown content={markdownContent} ref={ref} complete={complete}></Markdown>}
+      {loading ? (
+        'Loading'
+      ) : (
+        <Markdown
+          content={markdownContent}
+          ref={ref}
+          complete={complete}
+        ></Markdown>
+      )}
     </>
   )
 }
