@@ -1,40 +1,42 @@
 .MarkdownMenus {
+  display: flex;
+  flex-wrap: wrap;
+
+  .menu_item {
+    max-width: 280px;
+    min-width: 220px;
+    box-sizing: border-box;
+    flex: 1;
+    border-radius: 10px;
+    margin: 8px;
+    color: #fff;
+    font-size: 16px;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px 16px;
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 1);
+    transition: all 0.5s;
+    position: relative;
+    &:hover {
+      color: #000;
+      font-weight: 900;
+      transform: scale(1.05);
 
-    .menu_item {
-        max-width: 240px;
-        flex: 1;
-        border-radius: 10px;
-        margin: 8px;
-        color: #fff;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        padding: 12px 16px;
-        box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 1);
-        transition: all 0.5s;
-        position: relative;
-        &:hover {
-            color: #000;
-            font-weight: 900;
-            transform: scale(1.05);
-
-            &::after {
-                animation: fill 0.3s linear forwards;
-            }
-        }
-
-        &::after {
-            content: '';
-            background-color: #fff;
-            position: absolute;
-            border-radius: 10px;
-            left: 50%;
-            right: 50%;
-            top: 50%;
-            bottom: 50%;
-            z-index: -1;
-        }
+      &::after {
+        animation: fill 0.3s linear forwards;
+      }
     }
+
+    &::after {
+      content: '';
+      background-color: #fff;
+      position: absolute;
+      border-radius: 10px;
+      left: 50%;
+      right: 50%;
+      top: 50%;
+      bottom: 50%;
+      z-index: -1;
+    }
+  }
 }
